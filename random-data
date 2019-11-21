@@ -44,8 +44,8 @@ keytool -certreq -keyalg RSA -alias server-alias -file certreq.csr -keystore key
 6.
 keytool -import -alias root -keystore keystore.jks -trustcacerts -file <filename_of_the_chain_certificate>
 
-
-
+Let's Encrypt Free SSL Certificate Generation CA.
+for windows  serch on github:  etiifa/letsencrypt-win-simple
 
 
 
