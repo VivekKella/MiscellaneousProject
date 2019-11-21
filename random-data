@@ -48,6 +48,8 @@ Let's Encrypt Free SSL Certificate Generation CA.
 for windows  serch on github:  etiifa/letsencrypt-win-simple
 --------------
 MySQL RootPassword : mysqlrootpassword
+username : root
+password : mysqlrootpassword
 
 
 
