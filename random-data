@@ -1,0 +1,53 @@
+plugin for Producuing XML Web Services with Spring boot
+    <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
+					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+					<clearOutputDir>false</clearOutputDir>
+				</configuration>
+			</plugin>
+      
+      
+ SSL:
+----
+1.
+generating a self signed server certificate. it will give a warning about type of certificate.for that execute below command.
+keytool -genkey -alias server-alias  -ext SAN=dns:localhost,ip:127.0.0.1 -keyalg RSA -keypass changeit -storepass changeit -keystore keystore.jks
+
+2.
+keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.jks -deststoretype pkcs12
+
+3.
+export genereted server certificate to .cer file...server.cer will be generated.
+keytool -export -alias server-alias -storepass changeit -file server.cer -keystore keystore.jks
+
+4.
+certificate generated in previous step will be added to trustStore i.e cacerts.jks which stays in JRE/Lib/security path.
+but before adding certificate to keystore,we may present it to CA for certificate sigining request(CSR).
+keytool -import -v -trustcacerts -alias server-alias -file server.cer -keystore cacerts -keypass changeit -storepass changeit
+
+5.
+this will generate .csr file
+keytool -certreq -keyalg RSA -alias server-alias -file certreq.csr -keystore keystore.jks
+
+6.
+keytool -import -alias root -keystore keystore.jks -trustcacerts -file <filename_of_the_chain_certificate>
+
+
+
+
+
+
+
+
