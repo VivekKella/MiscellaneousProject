@@ -55,4 +55,10 @@ how to get free domain name and hosting website:
 https://www.youtube.com/watch?v=v_jZP4WvZ-w
 https://www.youtube.com/watch?v=f0nXo7mWGkM
 
+------------------------
+
+Generate a Trusted SSL Certificate for Angular. uses openssl protocol for certificate generation
+git clone https://github.com/RubenVermeulen/generate-trusted-ssl-certificate.git
+cd generate-trusted-ssl-certificate
+bash generate.sh
 
