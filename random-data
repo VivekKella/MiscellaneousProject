@@ -62,3 +62,17 @@ git clone https://github.com/RubenVermeulen/generate-trusted-ssl-certificate.git
 cd generate-trusted-ssl-certificate
 bash generate.sh
 
+
+------------------
+Insert Query with manually configured EntityManager
+em.getTransaction().begin();
+            em.createNativeQuery("INSERT INTO userinfo ( login, upassword, email, mobile, fax, dob)"
+                    + " VALUES ( :a, :b, :c, :d, :e, :f)")
+                    .setParameter("a", objUser.getLogin())
+                    .setParameter("b", objUser.getUpassword())
+                    .setParameter("c", objUser.getEmail())
+                    .setParameter("d", objUser.getMobile())
+                    .setParameter("e", objUser.getFax())
+                    .setParameter("f", objUser.getDob()).executeUpdate();
+            em.getTransaction().commit();
+            em.close();
