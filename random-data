@@ -76,3 +76,14 @@ em.getTransaction().begin();
                     .setParameter("f", objUser.getDob()).executeUpdate();
             em.getTransaction().commit();
             em.close();
+
+
+-----------------------
+Machine Learning Article
+https://machinelearningmastery.com/java-machine-learning/
+
+
+
+
+
+
